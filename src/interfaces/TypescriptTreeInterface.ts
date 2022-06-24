@@ -21,6 +21,11 @@ export interface TypescriptTreeInterface {
    * The members of the interface.
    */
   members: TypescriptTreeInterfaceMember[];
+
+  /**
+   * True if the interface should not be used.
+   */
+  deprecated?: boolean;
 }
 
 /**

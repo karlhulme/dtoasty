@@ -9,7 +9,9 @@ export function generateTypescriptForInterface(iface: TypescriptTreeInterface) {
   let line = "";
 
   if (iface.comment) {
-    line += generateTypescriptComment(iface.comment) + "\n";
+    line += generateTypescriptComment(iface.comment, {
+      deprecated: iface.deprecated,
+    }) + "\n";
   }
 
   if (iface.exported) {

@@ -6,9 +6,10 @@ Deno.test("Generate an empty interface.", () => {
     generateTypescriptForInterface({
       name: "myType",
       comment: "This is a comment.",
+      deprecated: true,
       members: [],
     }),
-    "/**\n * This is a comment.\n */\ninterface myType {\n}",
+    "/**\n * @deprecated This is a comment.\n */\ninterface myType {\n}",
   );
 });
 
