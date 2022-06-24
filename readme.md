@@ -1,6 +1,6 @@
 # dtoasty
 
-A simple, light weight utility, for Generates Typescript code files.
+A simple, light weight utility, for generating Typescript code files.
 
 Use it as part of a code-generation pipeline.
 
