@@ -19,8 +19,13 @@ export function generateTypescriptForInterface(iface: TypescriptTreeInterface) {
   line += `interface ${iface.name} {\n`;
 
   for (const field of iface.members) {
-    if (field.comment) {
-      line += generateTypescriptComment(field.comment) + "\n";
+    if (field.comment || field.deprecated) {
+      line += generateTypescriptComment(
+        field.comment || "",
+        {
+          deprecated: field.deprecated,
+        },
+      ) + "\n";
     }
 
     const opt = field.optional ? "?" : "";

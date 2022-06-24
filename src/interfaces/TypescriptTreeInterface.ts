@@ -46,4 +46,9 @@ export interface TypescriptTreeInterfaceMember {
    * The type name (or declaration) for this member.
    */
   typeName: string;
+
+  /**
+   * True if the member should not be used.
+   */
+  deprecated?: boolean;
 }

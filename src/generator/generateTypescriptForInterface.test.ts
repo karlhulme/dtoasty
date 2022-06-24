@@ -26,8 +26,15 @@ Deno.test("Generate a full interface.", () => {
         name: "param2",
         typeName: "number",
         optional: true,
+      }, {
+        name: "param3",
+        typeName: "boolean",
+        deprecated: true,
       }],
     }),
-    "/**\n * This is a comment.\n */\nexport interface myType {\n/**\n * This is param 1.\n */\nparam1: string;\nparam2?: number;\n}",
+    "/**\n * This is a comment.\n */\nexport interface myType {\n/**\n * This is param 1.\n */\nparam1: string;\n" +
+      "param2?: number;\n" +
+      "/**\n * @deprecated \n */\nparam3: boolean;\n" +
+      "}",
   );
 });
