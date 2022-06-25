@@ -6,23 +6,23 @@ import { generateTypescriptComment } from "./generateTypescriptComment.ts";
  * @param iface An interface definition.
  */
 export function generateTypescriptForInterface(iface: TypescriptTreeInterface) {
-  let line = "";
+  let block = "";
 
   if (iface.comment) {
-    line += generateTypescriptComment(iface.comment, {
+    block += generateTypescriptComment(iface.comment, {
       deprecated: iface.deprecated,
     }) + "\n";
   }
 
   if (iface.exported) {
-    line += "export ";
+    block += "export ";
   }
 
-  line += `interface ${iface.name} {\n`;
+  block += `interface ${iface.name} {\n`;
 
   for (const field of iface.members) {
     if (field.comment || field.deprecated) {
-      line += generateTypescriptComment(
+      block += generateTypescriptComment(
         field.comment || "",
         {
           deprecated: field.deprecated,
@@ -33,10 +33,10 @@ export function generateTypescriptForInterface(iface: TypescriptTreeInterface) {
     const fieldName = field.name.includes("-") ? `"${field.name}"` : field.name;
 
     const opt = field.optional ? "?" : "";
-    line += `${fieldName}${opt}: ${field.typeName};\n`;
+    block += `${fieldName}${opt}: ${field.typeName};\n`;
   }
 
-  line += "}";
+  block += "}";
 
-  return line;
+  return block;
 }

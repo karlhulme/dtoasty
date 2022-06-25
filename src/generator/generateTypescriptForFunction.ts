@@ -6,10 +6,10 @@ import { generateTypescriptFunctionComment } from "./generateTypescriptFunctionC
  * @param func A function definition.
  */
 export function generateTypescriptForFunction(func: TypescriptTreeFunction) {
-  let line = "";
+  let block = "";
 
   if (func.comment) {
-    line += generateTypescriptFunctionComment(
+    block += generateTypescriptFunctionComment(
       func.comment,
       func.params.map((p) => ({
         name: p.name,
@@ -19,11 +19,11 @@ export function generateTypescriptForFunction(func: TypescriptTreeFunction) {
   }
 
   if (func.exported) {
-    line += "export ";
+    block += "export ";
   }
 
   if (func.async) {
-    line += "async ";
+    block += "async ";
   }
 
   const params: string[] = [];
@@ -36,10 +36,10 @@ export function generateTypescriptForFunction(func: TypescriptTreeFunction) {
   const paramsDec = params.join(", ");
   const content = func.lines.join("\n");
 
-  line += `function ${func.name} `;
-  line += `(${paramsDec}): ${func.returnType} {\n`;
-  line += content;
-  line += "\n};";
+  block += `function ${func.name} `;
+  block += `(${paramsDec}): ${func.returnType} {\n`;
+  block += content;
+  block += "\n};";
 
-  return line;
+  return block;
 }

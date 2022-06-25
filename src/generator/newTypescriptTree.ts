@@ -8,6 +8,7 @@ export function newTypescriptTree(): TypescriptTree {
   return {
     lintDirectives: {},
     enumConstArrays: [],
+    errors: [],
     functions: [],
     imports: [],
     interfaces: [],

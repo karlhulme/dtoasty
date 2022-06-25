@@ -17,15 +17,15 @@ export function generateTypescriptComment(
   comment: string,
   options?: CommentOptions,
 ) {
-  let line = "/**\n * ";
+  let block = "/**\n * ";
 
   if (options?.deprecated) {
-    line += "@deprecated ";
+    block += "@deprecated ";
   }
 
-  line += comment.replaceAll("\n", " ");
+  block += comment.replaceAll("\n", " ");
 
-  line += "\n */";
+  block += "\n */";
 
-  return line;
+  return block;
 }

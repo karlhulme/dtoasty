@@ -7,6 +7,7 @@ Deno.test("Create a new typescript tree.", () => {
     {
       lintDirectives: {},
       enumConstArrays: [],
+      errors: [],
       functions: [],
       imports: [],
       interfaces: [],

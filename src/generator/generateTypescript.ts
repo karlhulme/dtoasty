@@ -6,6 +6,7 @@ import { generateTypescriptForEnumConstArray } from "./generateTypescriptForEnum
 import { generateTypescriptForType } from "./generateTypescriptForType.ts";
 import { generateTypescriptForInterface } from "./generateTypescriptForInterface.ts";
 import { generateTypescriptForFunction } from "./generateTypescriptForFunction.ts";
+import { generateTypescriptForError } from "./generateTypescriptForError.ts";
 
 /**
  * Returns a string that contains Typescript declarations
@@ -18,6 +19,10 @@ export function generateTypescript(tree: TypescriptTree) {
   lines.push(generateTypescriptForLintDirectives(tree.lintDirectives));
 
   lines.push(generateTypescriptForImports(tree.imports));
+
+  for (const error of tree.errors) {
+    lines.push(generateTypescriptForError(error));
+  }
 
   for (const stringUnion of tree.stringUnions) {
     lines.push(generateTypescriptForStringUnion(stringUnion));

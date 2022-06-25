@@ -5,6 +5,7 @@ import { TypescriptTreeStringUnion } from "./TypescriptTreeStringUnion.ts";
 import { TypescriptTreeType } from "./TypescriptTreeType.ts";
 import { TypescriptTreeEnumConstArray } from "./TypescriptTreeEnumConstArray.ts";
 import { TypescriptTreeFunction } from "./TypescriptTreeFunction.ts";
+import { TypescriptTreeError } from "./TypescriptTreeError.ts";
 
 /**
  * A tree of definitions that can be converted to a Typescript file.
@@ -20,6 +21,11 @@ export interface TypescriptTree {
    * An array of the types to import.
    */
   imports: TypescriptTreeImport[];
+
+  /**
+   * An array of errors.
+   */
+  errors: TypescriptTreeError[];
 
   /**
    * An array of interfaces to declare.

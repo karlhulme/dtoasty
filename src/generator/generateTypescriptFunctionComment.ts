@@ -7,18 +7,18 @@ export function generateTypescriptFunctionComment(
   comment: string,
   params: { name: string; comment?: string }[],
 ) {
-  let line = "/**\n * ";
+  let block = "/**\n * ";
 
-  line += comment.replaceAll("\n", " ") + "\n";
+  block += comment.replaceAll("\n", " ") + "\n";
 
   for (const param of params) {
     if (param.comment) {
-      line += ` * @param ${param.name} `;
-      line += param.comment.replaceAll("\n", " ") + "\n";
+      block += ` * @param ${param.name} `;
+      block += param.comment.replaceAll("\n", " ") + "\n";
     }
   }
 
-  line += " */";
+  block += " */";
 
-  return line;
+  return block;
 }

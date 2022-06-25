@@ -8,37 +8,37 @@ import { generateTypescriptComment } from "./generateTypescriptComment.ts";
 export function generateTypescriptForEnumConstArray(
   enumConstArray: TypescriptTreeEnumConstArray,
 ) {
-  let line = "";
+  let block = "";
   const valuesTypeName = `all${enumConstArray.name}Values`;
 
   if (enumConstArray.comment) {
-    line += generateTypescriptComment(enumConstArray.comment) + "\n";
+    block += generateTypescriptComment(enumConstArray.comment) + "\n";
   }
 
   if (enumConstArray.exported) {
-    line += "export ";
+    block += "export ";
   }
 
-  line += `const ${valuesTypeName} = [\n`;
+  block += `const ${valuesTypeName} = [\n`;
 
-  line += enumConstArray.values
+  block += enumConstArray.values
     .map((v) => `"${v}",\n`)
     .join("");
 
-  line += "] as const;\n\n";
+  block += "] as const;\n\n";
 
   if (enumConstArray.comment) {
-    line += generateTypescriptComment(enumConstArray.comment) + "\n";
+    block += generateTypescriptComment(enumConstArray.comment) + "\n";
   }
 
   if (enumConstArray.exported) {
-    line += "export ";
+    block += "export ";
   }
 
-  line += `type ${enumConstArray.name} = \n`;
+  block += `type ${enumConstArray.name} = \n`;
 
-  line += ` typeof ${valuesTypeName}`;
-  line += `[keyof typeof ${valuesTypeName}];`;
+  block += ` typeof ${valuesTypeName}`;
+  block += `[keyof typeof ${valuesTypeName}];`;
 
-  return line;
+  return block;
 }
