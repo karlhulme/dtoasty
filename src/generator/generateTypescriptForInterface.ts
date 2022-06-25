@@ -30,8 +30,10 @@ export function generateTypescriptForInterface(iface: TypescriptTreeInterface) {
       ) + "\n";
     }
 
+    const fieldName = field.name.includes("-") ? `"${field.name}"` : field.name;
+
     const opt = field.optional ? "?" : "";
-    line += `${field.name}${opt}: ${field.typeName};\n`;
+    line += `${fieldName}${opt}: ${field.typeName};\n`;
   }
 
   line += "}";
