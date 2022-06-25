@@ -31,9 +31,10 @@ export function generateTypescriptForInterface(iface: TypescriptTreeInterface) {
     }
 
     const fieldName = field.name.includes("-") ? `"${field.name}"` : field.name;
-
     const opt = field.optional ? "?" : "";
-    block += `${fieldName}${opt}: ${field.typeName};\n`;
+    const orNull = field.nullable ? "|null" : "";
+
+    block += `${fieldName}${opt}: ${field.typeName}${orNull};\n`;
   }
 
   block += "}";

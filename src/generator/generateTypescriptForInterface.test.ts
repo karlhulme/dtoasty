@@ -34,12 +34,17 @@ Deno.test("Generate an interface with a required field, an optional field, a dep
       }, {
         name: "param-4",
         typeName: "string[]",
+      }, {
+        name: "param5",
+        typeName: "number",
+        nullable: true,
       }],
     }),
     "/**\n * This is a comment.\n */\nexport interface myType {\n/**\n * This is param 1.\n */\nparam1: string;\n" +
       "param2?: number;\n" +
       "/**\n * @deprecated \n */\nparam3: boolean;\n" +
       '"param-4": string[];\n' +
+      "param5: number|null;\n" +
       "}",
   );
 });

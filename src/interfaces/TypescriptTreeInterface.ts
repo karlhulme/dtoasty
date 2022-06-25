@@ -48,6 +48,11 @@ export interface TypescriptTreeInterfaceMember {
   optional?: boolean;
 
   /**
+   * True if the member may be set to null.
+   */
+  nullable?: boolean;
+
+  /**
    * The type name (or declaration) for this member.
    */
   typeName: string;
