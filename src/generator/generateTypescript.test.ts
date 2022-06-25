@@ -24,7 +24,7 @@ Deno.test("Generate a typescript file without error.", () => {
     functions: [{
       name: "myFunc",
       params: [],
-      lines: [],
+      lines: "",
       returnType: "void",
     }],
     imports: [{

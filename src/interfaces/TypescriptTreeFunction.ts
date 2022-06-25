@@ -35,7 +35,7 @@ export interface TypescriptTreeFunction {
   /**
    * The content of the function.
    */
-  lines: string[];
+  lines: string;
 }
 
 /**

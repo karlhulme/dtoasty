@@ -34,11 +34,10 @@ export function generateTypescriptForFunction(func: TypescriptTreeFunction) {
   }
 
   const paramsDec = params.join(", ");
-  const content = func.lines.join("\n");
 
   block += `function ${func.name} `;
   block += `(${paramsDec}): ${func.returnType} {\n`;
-  block += content;
+  block += func.lines;
   block += "\n};";
 
   return block;

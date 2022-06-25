@@ -18,10 +18,7 @@ Deno.test("Generate a function.", () => {
       async: true,
       exported: true,
       comment: "This is a comment.",
-      lines: [
-        "// line 1",
-        "// line 2",
-      ],
+      lines: "// line 1\n// line 2",
     }),
     "/**\n * This is a comment.\n * @param param1 This is param 1.\n */\n" +
       "export async function myFunc (param1: string, param2?: number): boolean {\n" +
