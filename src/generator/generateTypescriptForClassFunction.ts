@@ -1,11 +1,13 @@
-import { TypescriptTreeFunction } from "../interfaces/index.ts";
+import { TypescriptTreeClassFunction } from "../interfaces/index.ts";
 import { generateTypescriptFunctionComment } from "./generateTypescriptFunctionComment.ts";
 
 /**
  * Returns the Typescript code for a function.
  * @param func A function definition.
  */
-export function generateTypescriptForFunction(func: TypescriptTreeFunction) {
+export function generateTypescriptForClassFunction(
+  func: TypescriptTreeClassFunction,
+) {
   let block = "";
 
   if (func.comment) {
@@ -18,13 +20,15 @@ export function generateTypescriptForFunction(func: TypescriptTreeFunction) {
     ) + "\n";
   }
 
-  if (func.exported) {
-    block += "export ";
-  }
-
   if (func.async) {
     block += "async ";
   }
+
+  if (func.isPrivate) {
+    block += "private ";
+  }
+
+  block += `${func.name} (`;
 
   const params: string[] = [];
 
@@ -33,10 +37,15 @@ export function generateTypescriptForFunction(func: TypescriptTreeFunction) {
     params.push(`${param.name}${opt}: ${param.typeName}`);
   }
 
-  const paramsDec = params.join(", ");
+  block += params.join(", ");
 
-  block += `function ${func.name} `;
-  block += `(${paramsDec}): ${func.returnType} {\n`;
+  block += ")";
+
+  if (func.returnType) {
+    block += `: ${func.returnType}`;
+  }
+
+  block += " {\n";
   block += func.lines;
   block += "\n}";
 

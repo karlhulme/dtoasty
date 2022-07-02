@@ -14,5 +14,6 @@ export function newTypescriptTree(): TypescriptTree {
     interfaces: [],
     stringUnions: [],
     types: [],
+    classes: [],
   };
 }

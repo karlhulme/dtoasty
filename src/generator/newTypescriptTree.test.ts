@@ -13,6 +13,7 @@ Deno.test("Create a new typescript tree.", () => {
       interfaces: [],
       stringUnions: [],
       types: [],
+      classes: [],
     },
   );
 });

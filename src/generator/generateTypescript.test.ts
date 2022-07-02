@@ -5,7 +5,7 @@ function normalise(v: string) {
   return v.replaceAll("\n", "").replaceAll(" ", "");
 }
 
-Deno.test("Generate a typescript file without error.", () => {
+Deno.test("Generate a full typescript file.", () => {
   const output = generateTypescript({
     lintDirectives: {
       banUnusedIgnore: true,
@@ -24,7 +24,7 @@ Deno.test("Generate a typescript file without error.", () => {
     functions: [{
       name: "myFunc",
       params: [],
-      lines: "",
+      lines: "// do action",
       returnType: "void",
     }],
     imports: [{
@@ -32,7 +32,7 @@ Deno.test("Generate a typescript file without error.", () => {
       path: "../pathA.ts",
     }],
     interfaces: [{
-      name: "MyInterface",
+      name: "MyEmptyInterface",
       members: [],
     }],
     stringUnions: [{
@@ -42,6 +42,10 @@ Deno.test("Generate a typescript file without error.", () => {
     types: [{
       name: "MyType",
       def: "(x: number) => void",
+    }],
+    classes: [{
+      name: "MyEmptyClass",
+      functions: [],
     }],
   });
 
@@ -61,21 +65,24 @@ Deno.test("Generate a typescript file without error.", () => {
     type MyStringUnion = "foo"|"bar";
 
     const allMyEnumValues = [
-    "foo",
-    "bar",
+      "foo",
+      "bar",
     ] as const;
 
     type MyEnum = 
-    typeof allMyEnumValues[keyof typeof allMyEnumValues];
+      typeof allMyEnumValues[keyof typeof allMyEnumValues];
 
     type MyType = (x: number) => void;
 
-    interface MyInterface {
+    interface MyEmptyInterface {
     }
 
     function myFunc (): void {
+      // do action
+    }
 
-    };
+    class MyEmptyClass {
+    }
   `;
 
   assertEquals(

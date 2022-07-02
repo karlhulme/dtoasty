@@ -1,21 +1,36 @@
 /**
  * A Typescript function.
  */
-export interface TypescriptTreeFunction {
+export interface TypescriptTreeClassConstructor {
   /**
-   * An optional comment.
+   * An optional comment for the parameter.
    */
   comment?: string;
 
   /**
-   * The name of the function.
+   * An array of parameters that the constructor expects.
    */
-  name: string;
+  params: TypescriptTreeClassFunctionParam[];
 
   /**
-   * True if the declaration should be exported.
+   * The content of the constructor.
    */
-  exported?: boolean;
+  lines: string;
+}
+
+/**
+ * A Typescript function.
+ */
+export interface TypescriptTreeClassFunction {
+  /**
+   * An optional comment for the parameter.
+   */
+  comment?: string;
+
+  /**
+   * True if the function should be declared as private.
+   */
+  isPrivate?: boolean;
 
   /**
    * True if the function is asynchronous.
@@ -23,9 +38,14 @@ export interface TypescriptTreeFunction {
   async?: boolean;
 
   /**
+   * The name of the function.
+   */
+  name: string;
+
+  /**
    * An array of parameters that the function expects.
    */
-  params: TypescriptTreeFunctionParam[];
+  params: TypescriptTreeClassFunctionParam[];
 
   /**
    * The return type of the function.
@@ -41,7 +61,7 @@ export interface TypescriptTreeFunction {
 /**
  * A parameter for a Typescript function.
  */
-export interface TypescriptTreeFunctionParam {
+export interface TypescriptTreeClassFunctionParam {
   /**
    * An optional comment for the parameter.
    */

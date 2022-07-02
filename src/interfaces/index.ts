@@ -1,4 +1,6 @@
 export * from "./TypescriptTree.ts";
+export * from "./TypescriptTreeClass.ts";
+export * from "./TypescriptTreeClassFunction.ts";
 export * from "./TypescriptTreeEnumConstArray.ts";
 export * from "./TypescriptTreeError.ts";
 export * from "./TypescriptTreeFunction.ts";
