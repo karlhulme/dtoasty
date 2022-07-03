@@ -35,7 +35,7 @@ export function generateTypescriptForClassConstructor(
 
   block += ctor.lines;
 
-  block += "\n};";
+  block += "\n}";
 
   return block;
 }

@@ -38,7 +38,7 @@ Deno.test("Generate a class.", () => {
       "/**\n * Create new Test.\n */\n" +
       "constructor () {\n" +
       "// construct\n" +
-      "};\n" +
+      "}\n" +
       "performAction () {\n" +
       "// do something here\n" +
       "}\n" +

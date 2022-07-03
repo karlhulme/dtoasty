@@ -18,6 +18,6 @@ Deno.test("Generate a class constructor.", () => {
     }),
     "/**\n * This is a comment.\n * @param param1 This is param 1.\n */\n" +
       "constructor (param1: string, param2?: number) {\n" +
-      "// line 1\n// line 2\n};",
+      "// line 1\n// line 2\n}",
   );
 });
