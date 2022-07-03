@@ -43,6 +43,11 @@ export interface TypescriptTreeClassFunction {
   name: string;
 
   /**
+   * The definitions of type parameters for the class.
+   */
+  typeParams?: string[];
+
+  /**
    * An array of parameters that the function expects.
    */
   params: TypescriptTreeClassFunctionParam[];

@@ -45,7 +45,11 @@ Deno.test("Generate a full typescript file.", () => {
     }],
     classes: [{
       name: "MyEmptyClass",
-      functions: [],
+      functions: [{
+        name: "simpleFunc",
+        params: [],
+        lines: "// do more",
+      }],
     }],
   });
 
@@ -82,9 +86,12 @@ Deno.test("Generate a full typescript file.", () => {
     }
 
     class MyEmptyClass {
+      simpleFunc () {
+        // do more
+      }
     }
   `;
-
+  console.log(output);
   assertEquals(
     normalise(output),
     normalise(expected),

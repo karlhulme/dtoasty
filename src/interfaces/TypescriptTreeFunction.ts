@@ -8,11 +8,6 @@ export interface TypescriptTreeFunction {
   comment?: string;
 
   /**
-   * The name of the function.
-   */
-  name: string;
-
-  /**
    * True if the declaration should be exported.
    */
   exported?: boolean;
@@ -21,6 +16,16 @@ export interface TypescriptTreeFunction {
    * True if the function is asynchronous.
    */
   async?: boolean;
+
+  /**
+   * The name of the function.
+   */
+  name: string;
+
+  /**
+   * The definitions of type parameters for the class.
+   */
+  typeParams?: string[];
 
   /**
    * An array of parameters that the function expects.

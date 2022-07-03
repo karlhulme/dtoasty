@@ -4,7 +4,9 @@ import { generateTypescriptForFunction } from "./generateTypescriptForFunction.t
 Deno.test("Generate a function.", () => {
   assertEquals(
     generateTypescriptForFunction({
+      comment: "This is a comment.",
       name: "myFunc",
+      typeParams: ["MyType1", "MyType2"],
       params: [{
         name: "param1",
         typeName: "string",
@@ -17,11 +19,10 @@ Deno.test("Generate a function.", () => {
       returnType: "boolean",
       async: true,
       exported: true,
-      comment: "This is a comment.",
       lines: "// line 1\n// line 2",
     }),
     "/**\n * This is a comment.\n * @param param1 This is param 1.\n */\n" +
-      "export async function myFunc (param1: string, param2?: number): boolean {\n" +
+      "export async function myFunc<MyType1, MyType2> (param1: string, param2?: number): boolean {\n" +
       "// line 1\n// line 2\n}",
   );
 });

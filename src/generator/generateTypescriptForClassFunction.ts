@@ -28,7 +28,11 @@ export function generateTypescriptForClassFunction(
     block += "private ";
   }
 
-  block += `${func.name} (`;
+  block += func.name;
+
+  if (Array.isArray(func.typeParams) && func.typeParams.length > 0) {
+    block += "<" + func.typeParams.join(", ") + ">";
+  }
 
   const params: string[] = [];
 
@@ -37,9 +41,7 @@ export function generateTypescriptForClassFunction(
     params.push(`${param.name}${opt}: ${param.typeName}`);
   }
 
-  block += params.join(", ");
-
-  block += ")";
+  block += ` (${params.join(", ")})`;
 
   if (func.returnType) {
     block += `: ${func.returnType}`;

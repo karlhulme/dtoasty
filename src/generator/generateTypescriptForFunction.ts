@@ -26,6 +26,12 @@ export function generateTypescriptForFunction(func: TypescriptTreeFunction) {
     block += "async ";
   }
 
+  block += `function ${func.name}`;
+
+  if (Array.isArray(func.typeParams) && func.typeParams.length > 0) {
+    block += "<" + func.typeParams.join(", ") + ">";
+  }
+
   const params: string[] = [];
 
   for (const param of func.params) {
@@ -33,10 +39,13 @@ export function generateTypescriptForFunction(func: TypescriptTreeFunction) {
     params.push(`${param.name}${opt}: ${param.typeName}`);
   }
 
-  const paramsDec = params.join(", ");
+  block += ` (${params.join(", ")})`;
 
-  block += `function ${func.name} `;
-  block += `(${paramsDec}): ${func.returnType} {\n`;
+  if (func.returnType) {
+    block += `: ${func.returnType}`;
+  }
+
+  block += ` {\n`;
   block += func.lines;
   block += "\n}";
 
