@@ -13,11 +13,12 @@ Deno.test("Generate an empty interface.", () => {
   );
 });
 
-Deno.test("Generate an interface with a required field, an optional field, a deprecated field and a hyphentated field.", () => {
+Deno.test("Generate an interface with a required field, an optional field, a deprecated field and a hyphentated field and type params.", () => {
   assertEquals(
     generateTypescriptForInterface({
       name: "myType",
       comment: "This is a comment.",
+      typeParams: ["string", "number"],
       exported: true,
       members: [{
         name: "param1",
@@ -40,7 +41,7 @@ Deno.test("Generate an interface with a required field, an optional field, a dep
         nullable: true,
       }],
     }),
-    "/**\n * This is a comment.\n */\nexport interface myType {\n/**\n * This is param 1.\n */\nparam1: string;\n" +
+    "/**\n * This is a comment.\n */\nexport interface myType<string, number> {\n/**\n * This is param 1.\n */\nparam1: string;\n" +
       "param2?: number;\n" +
       "/**\n * @deprecated \n */\nparam3: boolean;\n" +
       '"param-4": string[];\n' +

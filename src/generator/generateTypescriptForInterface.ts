@@ -18,7 +18,13 @@ export function generateTypescriptForInterface(iface: TypescriptTreeInterface) {
     block += "export ";
   }
 
-  block += `interface ${iface.name} {\n`;
+  block += `interface ${iface.name}`;
+
+  if (Array.isArray(iface.typeParams) && iface.typeParams.length > 0) {
+    block += "<" + iface.typeParams.join(", ") + ">";
+  }
+
+  block += " {\n";
 
   for (const field of iface.members) {
     if (field.comment || field.deprecated) {

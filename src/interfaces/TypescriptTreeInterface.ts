@@ -13,6 +13,11 @@ export interface TypescriptTreeInterface {
   name: string;
 
   /**
+   * The definitions of type parameters for the interface.
+   */
+  typeParams?: string[];
+
+  /**
    * True if the declaration should be exported.
    */
   exported?: boolean;
