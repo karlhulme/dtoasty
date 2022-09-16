@@ -6,7 +6,9 @@ Generate Typescript source code from a tree structure.
 
 ## Features
 
-This library strikes a balance between working in a data-driven manner without going full AST.  So high level concepts are represented with types but function and property implementations are just strings.
+This library strikes a balance between working in a data-driven manner without
+going full AST. So high level concepts are represented with types but function
+and property implementations are just strings.
 
 It can write out definitions for:
 
@@ -17,7 +19,8 @@ It can write out definitions for:
 - Lint directives
 - Enum const arrays and string unions
 
-Comments can be added to most elements of the output, e.g. class comments, function parameter comments, etc.
+Comments can be added to most elements of the output, e.g. class comments,
+function parameter comments, etc.
 
 ## Usage
 
