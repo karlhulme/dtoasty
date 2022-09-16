@@ -1,8 +1,22 @@
 # dtoasty
 
-A simple, light weight utility, for generating Typescript code files.
+![Image](https://img.shields.io/badge/coverage-100%25-green)
+
+Generate Typescript code files.
 
 Use it as part of a code-generation pipeline.
+
+It can write out definitions for:
+
+* Interfaces with optional/nullable/deprecatable members 
+* Classes and member functions
+* Error definitions
+* Imports (with de-duplication)
+* Lint directives
+* Enum const arrays and string unions
+
+Comments are supported throughout.
+
 
 ## Usage
 
