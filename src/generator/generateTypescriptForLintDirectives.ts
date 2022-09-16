@@ -11,28 +11,28 @@ export function generateTypescriptForLintDirectives(
   let line = "";
 
   const isUsed = Boolean(
-    directives.banUnusedIgnore ||
-      directives.noEmptyInterface ||
-      directives.noExplicitAny ||
-      directives.noUnusedVars,
+    directives.ignoreUnusedIgnore ||
+      directives.ignoreNoEmptyInterface ||
+      directives.ignoreNoExplicitAny ||
+      directives.ignoreNoUnusedVars,
   );
 
   if (isUsed) {
     line += "// deno-lint-ignore-file";
 
-    if (directives.banUnusedIgnore) {
+    if (directives.ignoreUnusedIgnore) {
       line += " ban-unused-ignore";
     }
 
-    if (directives.noExplicitAny) {
+    if (directives.ignoreNoExplicitAny) {
       line += " no-explicit-any";
     }
 
-    if (directives.noUnusedVars) {
+    if (directives.ignoreNoUnusedVars) {
       line += " no-unused-vars";
     }
 
-    if (directives.noEmptyInterface) {
+    if (directives.ignoreNoEmptyInterface) {
       line += " no-empty-interface";
     }
   }

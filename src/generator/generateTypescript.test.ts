@@ -8,10 +8,10 @@ function normalise(v: string) {
 Deno.test("Generate a full typescript file.", () => {
   const output = generateTypescript({
     lintDirectives: {
-      banUnusedIgnore: true,
-      noEmptyInterface: true,
-      noExplicitAny: true,
-      noUnusedVars: true,
+      ignoreUnusedIgnore: true,
+      ignoreNoEmptyInterface: true,
+      ignoreNoExplicitAny: true,
+      ignoreNoUnusedVars: true,
     },
     enumConstArrays: [{
       name: "MyEnum",

@@ -11,10 +11,10 @@ Deno.test("Generate an empty lint directive given no directives.", () => {
 Deno.test("Generate a full lint directive given true directives.", () => {
   assertEquals(
     generateTypescriptForLintDirectives({
-      banUnusedIgnore: true,
-      noEmptyInterface: true,
-      noExplicitAny: true,
-      noUnusedVars: true,
+      ignoreUnusedIgnore: true,
+      ignoreNoEmptyInterface: true,
+      ignoreNoExplicitAny: true,
+      ignoreNoUnusedVars: true,
     }),
     "// deno-lint-ignore-file ban-unused-ignore no-explicit-any no-unused-vars no-empty-interface",
   );
