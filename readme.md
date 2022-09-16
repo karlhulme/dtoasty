@@ -2,21 +2,22 @@
 
 ![Image](https://img.shields.io/badge/coverage-100%25-green)
 
-Generate Typescript code files.
+Generate Typescript source code from a tree structure.
 
-Use it as part of a code-generation pipeline.
+## Features
+
+This library strikes a balance between working in a data-driven manner without going full AST.  So high level concepts are represented with types but function and property implementations are just strings.
 
 It can write out definitions for:
 
-* Interfaces with optional/nullable/deprecatable members 
-* Classes and member functions
-* Error definitions
-* Imports (with de-duplication)
-* Lint directives
-* Enum const arrays and string unions
+- Interfaces with optional/nullable/deprecatable members
+- Classes and member functions
+- Error definitions
+- Imports (with de-duplication)
+- Lint directives
+- Enum const arrays and string unions
 
-Comments are supported throughout.
-
+Comments can be added to most elements of the output, e.g. class comments, function parameter comments, etc.
 
 ## Usage
 
