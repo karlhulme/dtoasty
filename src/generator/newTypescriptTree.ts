@@ -15,5 +15,6 @@ export function newTypescriptTree(): TypescriptTree {
     stringUnions: [],
     types: [],
     classes: [],
+    constDeclarations: [],
   };
 }

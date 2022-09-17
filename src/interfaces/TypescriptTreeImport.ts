@@ -1,5 +1,5 @@
 /**
- * The definition of an Typescript import.
+ * The definition of an import.
  */
 export interface TypescriptTreeImport {
   /**

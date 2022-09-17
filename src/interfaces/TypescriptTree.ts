@@ -7,6 +7,7 @@ import { TypescriptTreeEnumConstArray } from "./TypescriptTreeEnumConstArray.ts"
 import { TypescriptTreeFunction } from "./TypescriptTreeFunction.ts";
 import { TypescriptTreeError } from "./TypescriptTreeError.ts";
 import { TypescriptTreeClass } from "./TypescriptTreeClass.ts";
+import { TypescriptTreeConstDeclaration } from "./TypescriptTreeConstDeclaration.ts";
 
 /**
  * A tree of definitions that can be converted to a Typescript file.
@@ -57,4 +58,9 @@ export interface TypescriptTree {
    * An array of typscript classes.
    */
   classes: TypescriptTreeClass[];
+
+  /**
+   * An array of const declarations;
+   */
+  constDeclarations: TypescriptTreeConstDeclaration[];
 }

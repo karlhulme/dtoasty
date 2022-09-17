@@ -51,6 +51,10 @@ Deno.test("Generate a full typescript file.", () => {
         lines: "// do more",
       }],
     }],
+    constDeclarations: [{
+      name: "MaxDecimalPlaces",
+      value: "2",
+    }],
   });
 
   const expected = `
@@ -90,6 +94,8 @@ Deno.test("Generate a full typescript file.", () => {
         // do more
       }
     }
+
+    const MaxDecimalPlaces = 2
   `;
   console.log(output);
   assertEquals(

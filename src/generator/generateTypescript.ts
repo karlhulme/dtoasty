@@ -8,6 +8,7 @@ import { generateTypescriptForInterface } from "./generateTypescriptForInterface
 import { generateTypescriptForFunction } from "./generateTypescriptForFunction.ts";
 import { generateTypescriptForError } from "./generateTypescriptForError.ts";
 import { generateTypescriptForClass } from "./generateTypescriptForClass.ts";
+import { generateTypescriptForConstDeclaration } from "./generateTypescriptForConstDeclaration.ts";
 
 /**
  * Returns a string that contains Typescript declarations
@@ -47,6 +48,10 @@ export function generateTypescript(tree: TypescriptTree) {
 
   for (const aClass of tree.classes) {
     lines.push(generateTypescriptForClass(aClass));
+  }
+
+  for (const constDeclaration of tree.constDeclarations) {
+    lines.push(generateTypescriptForConstDeclaration(constDeclaration));
   }
 
   return lines.join("\n\n") + "\n";
