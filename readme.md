@@ -18,6 +18,7 @@ It can write out definitions for:
 - Imports (with de-duplication)
 - Lint directives
 - Enum const arrays and string unions
+- Const declarations
 
 Comments can be added to most elements of the output, e.g. class comments,
 function parameter comments, etc.
