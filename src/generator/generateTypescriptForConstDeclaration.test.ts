@@ -11,6 +11,17 @@ Deno.test("Generate a const declaration.", () => {
   );
 });
 
+Deno.test("Generate a const declaration with a type name.", () => {
+  assertEquals(
+    generateTypescriptForConstDeclaration({
+      name: "hello",
+      value: '"world"',
+      typeName: "string",
+    }),
+    'const hello: string = "world"\n',
+  );
+});
+
 Deno.test("Generate a const declaration that is deprectated and with a comment block.", () => {
   assertEquals(
     generateTypescriptForConstDeclaration({

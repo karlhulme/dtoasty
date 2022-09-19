@@ -23,6 +23,11 @@ export interface TypescriptTreeConstDeclaration {
   value: string;
 
   /**
+   * The type name (or declaration) for this declaration.
+   */
+  typeName?: string;
+
+  /**
    * True if the interface should not be used.
    */
   deprecated?: boolean;

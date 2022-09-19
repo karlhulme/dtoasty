@@ -3,7 +3,7 @@ import { generateTypescriptComment } from "./generateTypescriptComment.ts";
 
 /**
  * Returns the Typescript code for an error.
- * @param error A Typescript tree error.
+ * @param constDeclaration A constant declaration.
  */
 export function generateTypescriptForConstDeclaration(
   constDeclaration: TypescriptTreeConstDeclaration,
@@ -20,7 +20,13 @@ export function generateTypescriptForConstDeclaration(
     block += "export ";
   }
 
-  block += `const ${constDeclaration.name} = ${constDeclaration.value}\n`;
+  block += `const ${constDeclaration.name}`;
+
+  if (constDeclaration.typeName) {
+    block += `: ${constDeclaration.typeName}`;
+  }
+
+  block += ` = ${constDeclaration.value}\n`;
 
   return block;
 }
