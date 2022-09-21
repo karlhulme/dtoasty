@@ -23,7 +23,8 @@ It can write out definitions for:
 Comments can be added to most elements of the output, e.g. class comments,
 function parameter comments, etc.
 
-The order of output can be controlled via the `outputGeneration` property on most artifacts.
+The order of output can be controlled via the `outputGeneration` property on
+most artifacts.
 
 ## Usage
 
