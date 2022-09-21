@@ -51,6 +51,11 @@ export interface TypescriptTreeClass {
    * True if the class should not be used.
    */
   deprecated?: boolean;
+
+  /**
+   * The number of the generation process in which to write out this artifact.
+   */
+  outputGeneration?: number;
 }
 
 /**

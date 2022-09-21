@@ -42,6 +42,7 @@ Deno.test("Generate a full typescript file.", () => {
     types: [{
       name: "MyType",
       def: "(x: number) => void",
+      outputGeneration: 1,
     }],
     classes: [{
       name: "MyEmptyClass",
@@ -80,8 +81,6 @@ Deno.test("Generate a full typescript file.", () => {
     type MyEnum = 
       typeof allMyEnumValues[keyof typeof allMyEnumValues];
 
-    type MyType = (x: number) => void;
-
     interface MyEmptyInterface {
     }
 
@@ -96,6 +95,8 @@ Deno.test("Generate a full typescript file.", () => {
     }
 
     const MaxDecimalPlaces = 2
+
+    type MyType = (x: number) => void;
   `;
   console.log(output);
   assertEquals(

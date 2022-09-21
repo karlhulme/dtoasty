@@ -21,4 +21,9 @@ export interface TypescriptTreeEnumConstArray {
    * The array of string valus to declare.
    */
   values: string[];
+
+  /**
+   * The number of the generation process in which to write out this artifact.
+   */
+  outputGeneration?: number;
 }

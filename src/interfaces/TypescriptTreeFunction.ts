@@ -41,6 +41,11 @@ export interface TypescriptTreeFunction {
    * The content of the function.
    */
   lines: string;
+
+  /**
+   * The number of the generation process in which to write out this artifact.
+   */
+  outputGeneration?: number;
 }
 
 /**

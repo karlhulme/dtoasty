@@ -21,4 +21,9 @@ export interface TypescriptTreeType {
    * The definition of the type.
    */
   def: string;
+
+  /**
+   * The number of the generation process in which to write out this artifact.
+   */
+  outputGeneration?: number;
 }

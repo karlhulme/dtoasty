@@ -21,4 +21,9 @@ export interface TypescriptTreeStringUnion {
    * An array of values that make up the union.
    */
   values: string[];
+
+  /**
+   * The number of the generation process in which to write out this artifact.
+   */
+  outputGeneration?: number;
 }
