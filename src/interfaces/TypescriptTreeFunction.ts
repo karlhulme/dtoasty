@@ -44,6 +44,7 @@ export interface TypescriptTreeFunction {
 
   /**
    * The number of the generation process in which to write out this artifact.
+   * Defaults to zero.
    */
   outputGeneration?: number;
 }
