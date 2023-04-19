@@ -2,7 +2,7 @@
 
 ![Image](https://img.shields.io/badge/coverage-100%25-green)
 
-Generate Typescript source code from a tree structure..
+Generate Typescript source code from a tree structure.
 
 ## Features
 
