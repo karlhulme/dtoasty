@@ -79,7 +79,7 @@ Deno.test("Generate a full typescript file.", () => {
     ] as const;
 
     type MyEnum = 
-      typeof allMyEnumValues[keyof typeof allMyEnumValues];
+      typeof allMyEnumValues[number];
 
     interface MyEmptyInterface {
     }
@@ -98,7 +98,7 @@ Deno.test("Generate a full typescript file.", () => {
 
     type MyType = (x: number) => void;
   `;
-  console.log(output);
+  // console.log(output);
   assertEquals(
     normalise(output),
     normalise(expected),

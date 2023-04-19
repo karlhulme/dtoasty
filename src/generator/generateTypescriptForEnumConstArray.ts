@@ -9,7 +9,9 @@ export function generateTypescriptForEnumConstArray(
   enumConstArray: TypescriptTreeEnumConstArray,
 ) {
   let block = "";
-  const valuesTypeName = `all${enumConstArray.name}Values`;
+  const valuesTypeName = `all${enumConstArray.name[0].toUpperCase()}${
+    enumConstArray.name.slice(1)
+  }Values`;
 
   if (enumConstArray.comment) {
     block += generateTypescriptComment(enumConstArray.comment) + "\n";
@@ -37,8 +39,7 @@ export function generateTypescriptForEnumConstArray(
 
   block += `type ${enumConstArray.name} = \n`;
 
-  block += ` typeof ${valuesTypeName}`;
-  block += `[keyof typeof ${valuesTypeName}];`;
+  block += ` typeof ${valuesTypeName}[number];`;
 
   return block;
 }

@@ -4,7 +4,7 @@ import { generateTypescriptForEnumConstArray } from "./generateTypescriptForEnum
 Deno.test("Generate an enum const array.", () => {
   assertEquals(
     generateTypescriptForEnumConstArray({
-      name: "MyType",
+      name: "myType",
       values: ["foo", "bar"],
       comment: "This is a comment.",
       exported: true,
@@ -12,6 +12,6 @@ Deno.test("Generate an enum const array.", () => {
     "/**\n * This is a comment.\n */\n" +
       'export const allMyTypeValues = [\n"foo",\n"bar",\n] as const;\n\n' +
       "/**\n * This is a comment.\n */\n" +
-      "export type MyType = \n typeof allMyTypeValues[keyof typeof allMyTypeValues];",
+      "export type myType = \n typeof allMyTypeValues[number];",
   );
 });
